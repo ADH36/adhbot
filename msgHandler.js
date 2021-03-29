@@ -1,6 +1,5 @@
 const { decryptMedia } = require('@open-wa/wa-decrypt')
 const fs = require('fs-extra')
-const apikey = '5QPnLg4wNePSYIDmA7M6'
 const axios = require('axios')
 const moment = require('moment-timezone')
 const sendSticker = require('./sendSticker')
@@ -595,47 +594,6 @@ ${desc}`)
 	    if (mentionedJidList.length >= 1) return profile(mentionedJidList[1], message, fs, groupAdmins, client)
 	    return profile(sender.id, message, fs, groupAdmins, client)
             break
-		case 'waifu':
-            const waifu1 = await axios.get('https://mhankbarbar.herokuapp.com/api/waifu')
-            console.log(waifu1.image)
-            client.sendFileFromUrl(from, waifu1.data.image, 'Waifu.jpg', `❤️ Name : ${waifu1.data.name}\n🎉️ Description : ${waifu1.data.desc}\n`, id)
-            break 
-			 case 'husbando':
-            const diti = fs.readFileSync('./lib/husbu.json')
-            const ditiJsin = JSON.parse(diti)
-            const rindIndix = Math.floor(Math.random() * ditiJsin.length)
-            const rindKiy = ditiJsin[rindIndix]
-            client.sendFileFromUrl(from, rindKiy.image, 'Husbando.jpg', rindKiy.teks, id)
-            break
-			
-		 case 'user':
-        const username = body.slice(6)
-        const result = await axios.get(`https://api.jikan.moe/v3/user/${username}`)
-        const jikan =  result.data
-
-var Data = `🔖️ Username: ${jikan.username}
-📒️ User ID: ${jikan.user_id}
-❤️ Gender: ${jikan.gender}
-🌍️ Location: ${jikan.location}
-📆️ Joined: ${jikan.joined}
-⭐️ Anime Stats ⭐️
-Days Watched: ${jikan.anime_stats.days_watched}
-Mean Score: ${jikan.anime_stats.mean_score}
-Currently Watching: ${jikan.anime_stats.watching}
-Completed: ${jikan.anime_stats.completed}
-On Hold: ${jikan.anime_stats.on_hold}
-Dropped: ${jikan.anime_stats.dropped}
-Plan to Watch: ${jikan.anime_stats.plan_to_watch}
-🎯️ Manga Stats 🎯️
-Days Read: ${jikan.manga_stats.days_read}
-Mean Score: ${jikan.manga_stats.mean_score}
-Currently Reading: ${jikan.manga_stats.reading}
-Completed: ${jikan.manga_stats.completed}
-On Hold: ${jikan.manga_stats.on_hold}
-Dropped: ${jikan.manga_stats.dropped}
-Plan to Read: ${jikan.manga_stats.plan_to_read}`
-        await client.sendFileFromUrl(from, `${jikan.image_url}`,`user.png`, Data)
-        break	
         default:
             console.log(color('[PREFIX-CALL]', 'green'), color(time, 'yellow'), 'Command from', color(pushname))
  	    return client.reply(from, 'No such Command!', id)
