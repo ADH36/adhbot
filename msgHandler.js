@@ -585,6 +585,20 @@ ${desc}`)
         case 'info':
             client.reply(from, info, id)
             break
+			
+		case 'waifu':
+            const waifu1 = await axios.get('https://mhankbarbar.herokuapp.com/api/waifu')
+            console.log(waifu1.image)
+            client.sendFileFromUrl(from, waifu1.data.image, 'Waifu.jpg', `❤️ Name : ${waifu1.data.name}\n🎉️ Description : ${waifu1.data.desc}\n`, id)
+            break 
+	    case 'husbando':
+            const diti = fs.readFileSync('./lib/husbu.json')
+            const ditiJsin = JSON.parse(diti)
+            const rindIndix = Math.floor(Math.random() * ditiJsin.length)
+            const rindKiy = ditiJsin[rindIndix]
+            client.sendFileFromUrl(from, rindKiy.image, 'Husbando.jpg', rindKiy.teks, id)
+            break
+				
         case 'wa.me':
         case 'wame':
             await client.reply(from, `*This Is Your WhatsApp Number Link ${pushname}*\n\n*wa.me/${sender.id.replace(/[@c.us]/g, '')}*\n\n*or*\n\n*api.whatsapp.com/send?phone=${sender.id.replace(/[@c.us]/g, '')}*`)
