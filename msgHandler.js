@@ -378,7 +378,7 @@ ${desc}`)
         case 'join':
             if (args.length == 0) return client.reply(from, 'Wrong Format', message.id)
             const link = body.slice(6)
-            const minMem = 30
+            const minMem = 0
             const isLink = link.match(/(https:\/\/chat.whatsapp.com)/gi)
             const check = await client.inviteInfo(link)
             if (!isLink) return client.reply(from, 'Where\'s the link?', message.id)
