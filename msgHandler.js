@@ -382,7 +382,7 @@ ${desc}`)
             const isLink = link.match(/(https:\/\/chat.whatsapp.com)/gi)
             const check = await client.inviteInfo(link)
             if (!isLink) return client.reply(from, 'Where\'s the link?', message.id)
-            if (check.size < minMem) return client.reply(from, 'The group does not have 30+ members', message.id)
+            
             await client.joinGroupViaLink(link).then( async () => {
                 await client.reply(from, '*Joined* ✨️', message.id)
             }).catch(error => {
