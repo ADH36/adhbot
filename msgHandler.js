@@ -1,4 +1,4 @@
-const { create, Client } = require('@open-wa/wa-automate')
+const { create, Client, decryptMedia } = require('@open-wa/wa-automate')
 const fs = require('fs-extra')
 const axios = require('axios')
 const moment = require('moment-timezone')
