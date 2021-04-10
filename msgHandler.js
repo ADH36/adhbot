@@ -12,6 +12,7 @@ const msgFilter = require('./lib/msgFilter')
 const akaneko = require('akaneko');
 const booru = require('sfwbooru')
 const mime = require('mime');
+const mimetype = require('mimetype')
 const { exec } = require('child_process')
 const fetch = require('node-fetch');
 const ruleArr = JSON.parse(fs.readFileSync('./lib/rule.json'))
@@ -36,7 +37,7 @@ function sleep(ms) {
 
 module.exports = msgHandler = async (client, message) => {
     try {
-        const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, isMedia, mimetype, quotedMsg, mentionedJidList, author, quotedMsgObj } = message
+        const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, isMedia, quotedMsg, mentionedJidList, author, quotedMsgObj } = message
         let { body } = message
         const { name } = chat
         let { pushname, verifiedName } = sender
