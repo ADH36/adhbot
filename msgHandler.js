@@ -516,11 +516,31 @@ ${desc}`)
            }
           break
         case 'wallpaper':
-            if (args.length == 0) return client.reply(from, 'Wrong Format!', id)
-            const query = body.slice(6)
-            const walls = await wall(query)
-            await client.sendFileFromUrl(from, walls, 'walls.jpg', '', id)
-	    break
+            arg = body.trim().split(' ')
+                var slicedArgs = Array.prototype.slice.call(arg, 1);
+                const an1 = await slicedArgs.join(' ')
+                console.log(an1)
+                const an2 = an1.replace(' ', '_')
+                await booru.search('kn', [an2], {
+                        limit: 1,
+                        random: true
+                    })
+                    .then(booru.commonfy)
+                    .then(images => {
+                        //Log the direct link to each image
+                        for (let image of images) {
+                            client.sendFileFromUrl(from, image.common.file_url, 'Wallpaper.png', '✨️ *Here is your wallpaper*', id)
+                        }
+                    })
+                    .catch(err => {
+                        if (err.name === 'booruError') {
+                            //It's a custom error thrown by the package
+                            client.sendFileFromUrl(from, errorurl, 'error.png', '💔️ *Sorry, we couldn\'t find any matching images*', id)
+                        } else {
+                            //This means I messed up. Whoops.
+                            console.log(err)
+                        }
+                    })
         case 'haigusha': 
         	const waifu = await waifuclient.getRandom()
         	await sclient.sendFileFromUrl(message.from, waifu.data.display_picture, 'haugusha.jpg', `❤️ *Name : ${waifu.data.name}*\n\n💎️ Description : ${waifu.data.description}\n\n💚️ Source : ${waifu.data.series.name}\n\n✨️ URL: ${waifu.data.url}`, message.id)
