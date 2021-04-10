@@ -395,7 +395,7 @@ ${desc}`)
              if (isMedia) {
                  if (type == 'image') {
                  const buffer = await decryptMedia(message, uaOverride)
-                 const filename = `./media/images/sauce.${mime.extension(message.mimetype)}`
+                 const filename = `./media/images/sauce.${mime.getExtension(message.mimetype)}`
                  await fs.writeFile(filename, buffer)
                  await source.sauce(filename, message)
                  } else { 
@@ -403,7 +403,7 @@ ${desc}`)
                  }
              } else if (quotedMsg && quotedMsg.type == 'image') {
                  const buffer = await decryptMedia(quotedMsg, uaOverride)
-                 const filename = `./media/images/sauce.${mime.extension(quotedMsg.mimetype)}`
+                 const filename = `./media/images/sauce.${mime.getExtension(quotedMsg.mimetype)}`
                  await fs.writeFile(filename, buffer)
                  await source.sauce(filename, quotedMsgObj)
              } else { 
