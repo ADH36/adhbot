@@ -406,7 +406,7 @@ ${desc}`)
                  const buffer = await decryptMedia(quotedMsg, uaOverride)
                  const filename = `./media/images/sauce.${mime.getExtension(quotedMsg.mimetype)}`
                  await fs.writeFile(filename, buffer)
-                 await source.sauce(filename, quotedMsgObj)
+                 await source.sauce(filename, quotedMsg)
              } else { 
                  client.reply(from, 'Only Images are supported', id)
              }
