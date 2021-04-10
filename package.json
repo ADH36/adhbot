@@ -13,6 +13,7 @@
     "@open-wa/wa-automate": "^3.10.12",
     "@open-wa/wa-decrypt": "^3.1.0",
     "akaneko": "^3.3.0",
+    "mime": "2.5.2",
     "area-selection-js": "0.0.2",
     "axios": "^0.21.1",
     "bent": "^7.3.10",
