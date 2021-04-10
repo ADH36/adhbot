@@ -54,7 +54,7 @@ const startServer = async (client) => {
         
         client.onAddedToGroup((chat) => {
             let totalMem = chat.groupMetadata.participants.length
-            if (totalMem < 30) { 
+            if (totalMem < 0) { 
             	client.sendText(chat.id, `This group only has ${totalMem} members, Its needs atleast 30 members to activate the services`).then(() => client.leaveGroup(chat.id))
             	client.deleteChat(chat.id)
             } else {
