@@ -10,6 +10,7 @@ const { liriklagu, quotemaker, wall } = require('./lib/functions')
 const { help, info, } = require('./lib/help')
 const msgFilter = require('./lib/msgFilter')
 const akaneko = require('akaneko');
+const booru = require('sfwbooru')
 const { exec } = require('child_process')
 const fetch = require('node-fetch');
 const ruleArr = JSON.parse(fs.readFileSync('./lib/rule.json'))
