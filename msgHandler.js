@@ -542,6 +542,7 @@ ${desc}`)
                             console.log(err)
                         }
                     })
+	break		    
         case 'haigusha': 
         	const waifu = await waifuclient.getRandom()
         	await sclient.sendFileFromUrl(message.from, waifu.data.display_picture, 'haugusha.jpg', `❤️ *Name : ${waifu.data.name}*\n\n💎️ Description : ${waifu.data.description}\n\n💚️ Source : ${waifu.data.series.name}\n\n✨️ URL: ${waifu.data.url}`, message.id)
