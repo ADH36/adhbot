@@ -16,7 +16,7 @@
     "area-selection-js": "0.0.2",
     "axios": "^0.21.1",
     "bent": "^7.3.10",
-    "sfwbooru": "0.0.2"
+    "sfwbooru": "0.0.2",
     "brainly-scraper": "^1.0.1",
     "emoji-strip": "^1.0.1",
     "ffmpeg": "0.0.4",
