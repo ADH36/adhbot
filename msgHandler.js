@@ -175,7 +175,7 @@ ${desc}`)
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
-                if (!cvk.isReadOnly) client.sendText(ids, `[ EWH BOT Broadcast ]\n\n${msg}`)
+                if (!cvk.isReadOnly) client.sendText(ids, `[ BOT Broadcast System ]\n\n${msg}`)
             }
             client.reply(from, 'Broadcast Success!', message.id)
             break
