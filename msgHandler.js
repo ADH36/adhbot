@@ -142,7 +142,7 @@ module.exports = msgHandler = async (client, message) => {
 			    
 	case 'aiquote' :
             const aiquote = await axios.get("http://inspirobot.me/api?generate=true")
-            await client.sendFileFromUrl(from, aiquote.data, 'quote.jpg', 'Powered By http://inspirobot.me/ With ❤️' , id )
+            await client.sendFileFromUrl(from, aiquote.data, 'quote.jpg', ' ❤️' , id )
             break
 			    
         case 'groupinfo' :
