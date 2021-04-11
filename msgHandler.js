@@ -30,7 +30,7 @@ const { profile } = require('./lib/profile.js')
 const sticker = require('./lib/sticker.js')
 const downloader = require('./lib/downloader.js')
 const { processTime, isUrl, createSerial } = require('./tools/index')
-const url = args.length !== 0 ? args[0] : ''
+
 const stickerArr = ['XM1N7CiW1xxkL8Oi6sCD2+xECehai2DI4bE37I7PIhw=', 'toFAeTndmqlzGRdBUY4K2EAnLdwCqgGF7nmMiaAX2Y0=', 'UWK/E5Jf/OLg+zFgICX3bwXc0iXfPEZ+PDDf0C+3Qvw=', 'BfppV7tESHi/QmrxuJG4WdXKYsO3lNTiXf0aBfasJ4E=', 'mHbEuCjA+RVWftr2AFuLieAJcyHYZnibd7waZPqvDNQ=']
 
 const { msg } = require('./nonPrefix.js')
@@ -51,6 +51,7 @@ module.exports = msgHandler = async (client, message) => {
         const isCmd = body.startsWith(prefix)
 	    const isRule = ruleArr.includes(chat.id)
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
+		const url = args.length !== 0 ? args[0] : ''
 
 	const botNumber = await client.getHostNumber()
 	const groupId = isGroupMsg ? chat.groupMetadata.id : ''
