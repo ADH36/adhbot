@@ -29,6 +29,7 @@ const errorurl2 = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207
 const { profile } = require('./lib/profile.js')
 const sticker = require('./lib/sticker.js')
 const downloader = require('./lib/downloader.js')
+const { msgFilter, color, processTime, isUrl, createSerial } = require('../tools')
 const stickerArr = ['XM1N7CiW1xxkL8Oi6sCD2+xECehai2DI4bE37I7PIhw=', 'toFAeTndmqlzGRdBUY4K2EAnLdwCqgGF7nmMiaAX2Y0=', 'UWK/E5Jf/OLg+zFgICX3bwXc0iXfPEZ+PDDf0C+3Qvw=', 'BfppV7tESHi/QmrxuJG4WdXKYsO3lNTiXf0aBfasJ4E=', 'mHbEuCjA+RVWftr2AFuLieAJcyHYZnibd7waZPqvDNQ=']
 
 const { msg } = require('./nonPrefix.js')
