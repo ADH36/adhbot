@@ -14,10 +14,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ADH36/adhbot#📝 Prerequisites">Prerequisites</a> •
-  <a href="https://github.com/ADH36/adhbot#🔍 Installation">Installation</a> •
-  <a href=https://github.com/ADH36/adhbot#💡 Features>Features</a> •
-  <a href="https://github.com/ADH36/adhbot#📝 License">License</a>
+  <a href=ttps://github.com/ADH36/adhbot#💡 Features>Features</a> •
+  <a href="ttps://github.com/ADH36/adhbot#📝 License">License</a>
 </p>
 
 
