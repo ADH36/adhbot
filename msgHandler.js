@@ -109,6 +109,8 @@ module.exports = msgHandler = async (client, message) => {
 		
 	case 'igdl': // by: VideFrelan
             case 'instadl':
+			
+			const url = args.length !== 0 ? args[0] : ''
   
                 if (!isUrl(url) && !url.includes('instagram.com')) return await client.reply(from, eng.wrongFormat(), id)
              
