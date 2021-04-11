@@ -28,9 +28,11 @@ const errorurl = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/
 const errorurl2 = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/5B7E46EE484181A676C02DFCAD48ECB1C74BC423/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'
 const { profile } = require('./lib/profile.js')
 const sticker = require('./lib/sticker.js')
+const downloader = require('../lib')
 const stickerArr = ['XM1N7CiW1xxkL8Oi6sCD2+xECehai2DI4bE37I7PIhw=', 'toFAeTndmqlzGRdBUY4K2EAnLdwCqgGF7nmMiaAX2Y0=', 'UWK/E5Jf/OLg+zFgICX3bwXc0iXfPEZ+PDDf0C+3Qvw=', 'BfppV7tESHi/QmrxuJG4WdXKYsO3lNTiXf0aBfasJ4E=', 'mHbEuCjA+RVWftr2AFuLieAJcyHYZnibd7waZPqvDNQ=']
 
 const { msg } = require('./nonPrefix.js')
+const { ind, eng } = require('./text/lang/')
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -103,6 +105,29 @@ module.exports = msgHandler = async (client, message) => {
 	await client.sendFile(from, imageBase64, 'img.jpg')
 		}
 		break
+		
+	case 'igdl': // by: VideFrelan
+            case 'instadl':
+  
+                if (!isUrl(url) && !url.includes('instagram.com')) return await client.reply(from, eng.wrongFormat(), id)
+             
+                await client.reply(from, eng.wait(), id)
+                downloader.insta(url)
+                    .then(async ({ result }) => {
+                        for (let i = 0; i < result.post.length; i++) {
+                            if (result.post[i].type === 'image') {
+                                await client.sendFileFromUrl(from, result.post[i].urlDownload, 'igpostdl.jpg', `*...:* *Instagram Downloader* *:...*\n\nUsername: ${result.owner_username}\nCaption: ${result.caption}`, id)
+                            } else if (result.post[i].type === 'video') {
+                                await client.sendFileFromUrl(from, result.post[i].urlDownload, 'igpostdl.mp4', `*...:* *Instagram Downloader* *:...*\n\nUsername: ${result.owner_username}\nCaption: ${result.caption}`, id)
+                            }
+                        }
+                        console.log('Success sending Instagram media!')
+                    })
+                    .catch(async (err) => {
+                        console.error(err)
+                        await client.reply(from, 'Error!', id)
+                    })
+            break 	
         
 	case 'tts':
         if (args.length === 1) return client.reply(from, '  *Usage #tts language text*')
