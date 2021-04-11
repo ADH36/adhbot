@@ -28,7 +28,7 @@ const errorurl = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/
 const errorurl2 = 'https://steamuserimages-a.akamaihd.net/ugc/954087817129084207/5B7E46EE484181A676C02DFCAD48ECB1C74BC423/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'
 const { profile } = require('./lib/profile.js')
 const sticker = require('./lib/sticker.js')
-const downloader = require('../lib')
+const downloader = require('./lib/downloader.js')
 const stickerArr = ['XM1N7CiW1xxkL8Oi6sCD2+xECehai2DI4bE37I7PIhw=', 'toFAeTndmqlzGRdBUY4K2EAnLdwCqgGF7nmMiaAX2Y0=', 'UWK/E5Jf/OLg+zFgICX3bwXc0iXfPEZ+PDDf0C+3Qvw=', 'BfppV7tESHi/QmrxuJG4WdXKYsO3lNTiXf0aBfasJ4E=', 'mHbEuCjA+RVWftr2AFuLieAJcyHYZnibd7waZPqvDNQ=']
 
 const { msg } = require('./nonPrefix.js')
