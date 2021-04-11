@@ -201,7 +201,15 @@ ${desc}`)
             const { cases, todayCases, deaths, todayDeaths, active } = response2.data
                 await client.sendText(from, '🌎️Covid Info -' + country + ' 🌍️\n\n✨️Total Cases: ' + `${cases}` + '\n📆️Today\'s Cases: ' + `${todayCases}` + '\n☣️Total Deaths: ' + `${deaths}` + '\n☢️Today\'s Deaths: ' + `${todayDeaths}` + '\n⛩️Active Cases: ' + `${active}` + '.')
             break
-			    
+			
+
+    case 'botstat': {
+            const loadedMsg = await client.getAmountOfLoadedMessages()
+            const chatIds = await client.getAllChatIds()
+            const groups = await client.getAllGroups()
+            client.sendText(from, `Status :\n- *${loadedMsg}* Loaded Messages\n- *${groups.length}* Group Chats\n- *${chatIds.length - groups.length}* Personal Chats\n- *${chatIds.length}* Total Chats`)
+            break
+        }
         case 'ping':
             if (!isGroupMsg) return client.reply(from, 'Sorry, This command can only be used in groups', message.id)
             if (!isGroupAdmins) return client.reply(from, 'Well, only admins can use this command', message.id)
