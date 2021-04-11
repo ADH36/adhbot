@@ -121,6 +121,9 @@ module.exports = msgHandler = async (client, message) => {
         }
 
         break
+        case 'p':
+            await client.sendText(from, `Pong!\nSpeed: ${processTime(t, moment())} secs`)
+            break
 			    
         case 'quotemaker':
             arg = body.trim().split('|')
