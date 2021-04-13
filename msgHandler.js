@@ -168,11 +168,11 @@ module.exports = msgHandler = async (client, message) => {
             break
 		case '!ytmp3':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!ytmp3 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
-            let isLinks = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+            let isLinks = arg[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
             if (!isLinks) return client.reply(from, mess.error.Iv, id)
             try {
                 client.reply(from, mess.wait, id)
-                const resp = await get.get(`https://mhankbarbar.moe/api/yta?url=${args[1]}&apiKey=${apiKey}`).json()
+                const resp = await get.get(`https://mhankbarbar.moe/api/yta?url=${arg[1]}&apiKey=${apiKey}`).json()
                 if (resp.error) {
                     client.reply(from, resp.error, id)
                 } else {
