@@ -101,7 +101,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'stikergif':
         case 'sgif':
             
-                    const mediaData = await decryptMedia(quotedMsg)
+                    const mediaData = await decryptMedia(quotedMsg,uaOverride)
                     client.reply(from, '[WAIT] Processing⏳ Estimated Time ± 1 min!', id)
                     const filename = `./media/aswu.${mimetype.split('/')[1]}`
                     await fs.writeFileSync(filename, mediaData)
