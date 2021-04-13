@@ -53,6 +53,7 @@ module.exports = msgHandler = async (client, message) => {
 		const url = args.length !== 0 ? args[0] : ''
 
 	const botNumber = await client.getHostNumber()
+	 const apiKey = 'TegF7oPQr73IdbFHbehU'
 	const groupId = isGroupMsg ? chat.groupMetadata.id : ''
 	const groupAdmins = isGroupMsg ? await client.getGroupAdmins(groupId) : ''
 	const isGroupAdmins = isGroupMsg ? groupAdmins.includes(sender.id) : false
@@ -165,6 +166,27 @@ module.exports = msgHandler = async (client, message) => {
         case 'p':
             await client.sendText(from, `Pong!\nSpeed: ${processTime(t, moment())} secs`)
             break
+		case '!ytmp3':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!ytmp3 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
+            let isLinks = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+            if (!isLinks) return client.reply(from, mess.error.Iv, id)
+            try {
+                client.reply(from, mess.wait, id)
+                const resp = await get.get(`https://mhankbarbar.moe/api/yta?url=${args[1]}&apiKey=${apiKey}`).json()
+                if (resp.error) {
+                    client.reply(from, resp.error, id)
+                } else {
+                    const { title, thumb, filesize, result } = await resp
+                    if (Number(filesize.split(' MB')[0]) >= 30.00) return client.reply(from, 'Maaf durasi video sudah melebihi batas maksimal!', id)
+                    client.sendFileFromUrl(from, thumb, 'thumb.jpg', `➸ *Title* : ${title}\n➸ *Filesize* : ${filesize}\n\nSilahkan tunggu sebentar proses pengiriman file membutuhkan waktu beberapa menit.`, id)
+                    await client.sendFileFromUrl(from, result, `${title}.mp3`, '', id).catch(() => client.reply(from, mess.error.Yt3, id))
+                    //await client.sendAudio(from, result, id)
+                }
+            } catch (err) {
+                client.sendText(ownerNumber[0], 'Error ytmp3 : '+ err)
+                client.reply(from, mess.error.Yt3, id)
+            }
+            break	
 			    
         case 'quotemaker':
             arg = body.trim().split('|')
