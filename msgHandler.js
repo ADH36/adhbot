@@ -114,6 +114,7 @@ module.exports = msgHandler = async (client, message) => {
                 } else (
                     client.reply(from, '[❗] Quote a Message Baka!', id)
                 )
+				client.reply(from, '[❗] No Media in Message Baka!', id)
             }
             break
        case 'toimg':
