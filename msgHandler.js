@@ -101,9 +101,8 @@ module.exports = msgHandler = async (client, message) => {
 		case 'stickergif':
         case 'stikergif':
         case 'sgif':
-            if (isMedia) {
-                if (quotedMsg) {
-                    const mediaData = await decryptMedia(quotedMsg, uaOverride)
+            
+                    const mediaData = await decryptMedia(quotedMsg)
                     client.reply(from, '[WAIT] Processing⏳ Estimated Time ± 1 min!', id)
                     const filename = `./media/aswu.${mimetype.split('/')[1]}`
                     await fs.writeFileSync(filename, mediaData)
@@ -111,11 +110,7 @@ module.exports = msgHandler = async (client, message) => {
                         const gif = await fs.readFileSync('./media/output.gif', { encoding: "base64" })
                         await client.sendImageAsSticker(from, `data:image/gif;base64,${gif.toString('base64')}`)
                     })
-                } else (
-                    client.reply(from, '[❗] Quote a Message Baka!', id)
-                )
-				client.reply(from, '[❗] No Media in Message Baka!', id)
-            }
+               
             break
        case 'toimg':
        	if(!quotedMsg) return client.reply(from, '.', id)
