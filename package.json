@@ -62,6 +62,6 @@
     "lib": "lib"
   },
   "devDependencies": {
-    "eslint": "^7.22.0"
+    
   }
 }
