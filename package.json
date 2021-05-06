@@ -51,6 +51,7 @@
     "video-crop-cli": "^1.1.0",
     "video-url-link": "^0.1.4",
     "ytdl": "^1.3.5"
+    "video-url-link": "git+https://github.com/YogaSakti/video-url-link.git"
   },
   "directories": {
     "lib": "lib"
