@@ -49,6 +49,8 @@
     "video-crop": "^1.1.0",
     "video-crop-cli": "^1.1.0",
     "video-url-link": "^0.1.4",
+    "prom-client": "^13.1.0",
+    "sharp": "^0.28.1",
     "ytdl": "^1.3.5"
   },
   "directories": {
