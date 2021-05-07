@@ -1,0 +1,11 @@
+---
+application:
+  name: "adhbot"
+  project: "b1"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-adhbot"
+  routes:
+  - application_name: "adhbot"
+    paths:
+    - "/*"
