@@ -23,9 +23,7 @@ jobs:
 
     - name: npm install, build, and test
       run: |
-        apt-get update
-        apt-get -y upgrade
-        npm install --production 
+        npm install --production --ignore-scripts 
         npm start
 
     - name: Upload artifact for deployment job
