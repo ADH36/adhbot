@@ -43,6 +43,8 @@
     "request": "^2.88.2",
     "saucenao": "0.0.2",
     "sfwbooru": "0.0.2",
+    "puppeteer": "9.1.1",
+    "chromium": "3.0.2",
    
     
     "thumbbot": "^0.4.1",
