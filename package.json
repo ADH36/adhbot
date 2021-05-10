@@ -10,7 +10,7 @@
   "author": "SomnathDas & Alen Yohannan",
   "license": "GPL-3.0",
   "dependencies": {
-    "@open-wa/wa-automate": "^3.13.1",
+    "@open-wa/wa-automate": "^3.1.0",
     "@open-wa/wa-decrypt": "^3.1.0",
     "akaneko": "^3.3.0",
     "area-selection-js": "0.0.2",
