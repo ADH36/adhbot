@@ -43,7 +43,7 @@
     "request": "^2.88.2",
     "saucenao": "0.0.2",
     "sfwbooru": "0.0.2",
-   
+    "swagger-stat": "0.95.19",
     
     "thumbbot": "^0.4.1",
     "tiktok-scraper": "^1.3.0",
