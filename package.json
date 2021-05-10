@@ -45,7 +45,7 @@
     "sfwbooru": "0.0.2",
     "puppeteer": "9.1.1",
     "chromium": "3.0.2",
-   
+    "selenium-webdrive": "4.0.0-beta.3",
     
     "thumbbot": "^0.4.1",
     "tiktok-scraper": "^1.3.0",
