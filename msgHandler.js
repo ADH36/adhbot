@@ -652,13 +652,24 @@ ${desc}`)
             arg = body.trim().split(' ')
             const person = author.replace('@c.us', '')
             await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/S8507sBJm1598XnsgD/source.gif')
-            client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
+            client.sendTextWithMentions(from, '@' + person + ' *Slapped* ' + arg[1])
             break
 	case 'punch':
             arg = body.trim().split(' ')
             const person1 = author.replace('@c.us', '')
             await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/Z5zuypybI5dYc/giphy.gif')
-            client.sendTextWithMentions(from, '@' + person1 + ' *punched* ' + arg[1])
+            client.sendTextWithMentions(from, '@' + person1 + ' *Punched* ' + arg[1])
+            break
+	case 'punch':
+
+            arg = body.trim().split(' ')
+
+            const person2 = author.replace('@c.us', '')
+
+            await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/5tmRHwTlHAA9WkVxTU/giphy.gif')
+
+            client.sendTextWithMentions(from, '@' + person2 + ' *Head Patted* ' + arg[1])
+
             break
         case 'pokemon':
             arg = body.trim().split(' ')
