@@ -660,7 +660,7 @@ ${desc}`)
             await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/Z5zuypybI5dYc/giphy.gif')
             client.sendTextWithMentions(from, '@' + person1 + ' *Punched* ' + arg[1])
             break
-	case 'punch':
+	case 'headpat':
 
             arg = body.trim().split(' ')
 
