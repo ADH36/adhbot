@@ -656,9 +656,9 @@ ${desc}`)
             break
 	case 'punch':
             arg = body.trim().split(' ')
-            const person = author.replace('@c.us', '')
+            const person1 = author.replace('@c.us', '')
             await client.sendGiphyAsSticker(from, 'https://tenor.com/ugnq.gif')
-            client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
+            client.sendTextWithMentions(from, '@' + person1 + ' *slapped* ' + arg[1])
             break
         case 'pokemon':
             arg = body.trim().split(' ')
