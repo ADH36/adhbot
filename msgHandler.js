@@ -654,6 +654,12 @@ ${desc}`)
             await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/S8507sBJm1598XnsgD/source.gif')
             client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
             break
+	case 'punch':
+            arg = body.trim().split(' ')
+            const person = author.replace('@c.us', '')
+            await client.sendGiphyAsSticker(from, 'https://tenor.com/ugnq.gif')
+            client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
+            break
         case 'pokemon':
             arg = body.trim().split(' ')
             if (arg.length < 2) {
