@@ -470,7 +470,7 @@ ${desc}`)
              if (isMedia) {
                  if (type == 'image') {
                  const buffer = await decryptMedia(message, uaOverride)
-                 const filename = `./media/images/sauce.mp4`
+                 const filename = `./media/images/sauce.jpeg`
                  await fs.writeFile(filename, buffer)
                  await source.sauce(filename, message)
                  } else { 
