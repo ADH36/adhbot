@@ -662,9 +662,9 @@ ${desc}`)
             break
 	case 'fuck':
             arg = body.trim().split(' ')
-            const person2 = author.replace('@c.us', '')
+            const person3 = author.replace('@c.us', '')
             await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/l46Coz8DpiCuISl7G/giphy.gif')
-            client.sendTextWithMentions(from, '@' + person2 + ' *Fucked* ' + arg[1])
+            client.sendTextWithMentions(from, '@' + person3 + ' *Fucked* ' + arg[1])
             break		    
 	case 'headpat':
 
