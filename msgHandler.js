@@ -660,6 +660,12 @@ ${desc}`)
             await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/Z5zuypybI5dYc/giphy.gif')
             client.sendTextWithMentions(from, '@' + person1 + ' *Punched* ' + arg[1])
             break
+	case 'fuck':
+            arg = body.trim().split(' ')
+            const person2 = author.replace('@c.us', '')
+            await client.sendGiphyAsSticker(from, 'https://media.giphy.com/media/l46Coz8DpiCuISl7G/giphy.gif')
+            client.sendTextWithMentions(from, '@' + person2 + ' *Fucked* ' + arg[1])
+            break		    
 	case 'headpat':
 
             arg = body.trim().split(' ')
