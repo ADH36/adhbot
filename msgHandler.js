@@ -42,7 +42,7 @@ module.exports = msgHandler = async (client, message) => {
     try {
         const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, mimetype, isMedia, quotedMsg, mentionedJidList, author, quotedMsgObj } = message
         let { body } = message
-        const { name, isGroup } = chat
+        const { name, isGroup, groupMetadata } = chat
         let { pushname, verifiedName } = sender
         body = (type === 'chat' && body.startsWith(prefix)) ? body : ((type === 'image' && caption || type === 'video' && caption) && caption.startsWith(prefix)) ? caption : ''
         const command = body.slice(prefix.length).trim().split(/ +/).shift().toLowerCase()
@@ -112,6 +112,7 @@ module.exports = msgHandler = async (client, message) => {
                     })
                
             break
+       case 'gsticker':		    
        case 'gifsticker':
        case 'gifstiker':
         if (!mimetype) return await client.reply(from, '_⚠️ Example of Use of the Command: send a short video that you want to use as a sticker then provide a caption! ?gifsticker_', id);
