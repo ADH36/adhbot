@@ -42,7 +42,7 @@ module.exports = msgHandler = async (client, message) => {
     try {
         const { type, id, from, t, sender, isGroupMsg, chat, chatId, caption, mimetype, isMedia, quotedMsg, mentionedJidList, author, quotedMsgObj } = message
         let { body } = message
-        const { name } = chat
+        const { name, isGroup } = chat
         let { pushname, verifiedName } = sender
         body = (type === 'chat' && body.startsWith(prefix)) ? body : ((type === 'image' && caption || type === 'video' && caption) && caption.startsWith(prefix)) ? caption : ''
         const command = body.slice(prefix.length).trim().split(/ +/).shift().toLowerCase()
