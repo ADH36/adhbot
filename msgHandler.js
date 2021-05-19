@@ -1,6 +1,7 @@
 const { create, Client, decryptMedia } = require('@open-wa/wa-automate')
 const fs = require('fs-extra')
 const axios = require('axios')
+const set = require('settings');
 const moment = require('moment-timezone')
 const sendSticker = require('./sendSticker')
 const get = require('got')
@@ -52,7 +53,7 @@ module.exports = msgHandler = async (client, message) => {
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
 		const url = args.length !== 0 ? args[0] : ''
 
-	const botGroup = ${support};
+	const botGroup = set.support;
 	const botNumber = await client.getHostNumber()
 	 const apiKey = 'TegF7oPQr73IdbFHbehU'
 	const groupId = isGroupMsg ? chat.groupMetadata.id : ''
