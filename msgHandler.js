@@ -112,6 +112,14 @@ module.exports = msgHandler = async (client, message) => {
                     })
                
             break
+       case 'gifsticker':
+       case 'gifstiker':
+        if (!mimetype) return await client.reply(from, '_⚠️ Contoh Penggunaan Perintah : kirim sebuah video pendek yang ingin dijadikan stiker lalu berikan caption !gifstiker_', id);
+        if (!mimetype.includes('mp4')) return await client.reply(from, '_⚠️ Pastikan yang anda kirim adalah file video ber-ekstensi mp4_', id);
+        const vidmediadata = await decryptMedia(message);
+        const vidb64 = `data:${mimetype};base64,${vidmediadata.toString('base64')}`;
+        await client.sendMp4AsSticker(from, vidb64, { fps: 10, startTime: `00:00:00.0`, endTime: `00:00:05.0`, loop: 0 });
+        break;
        case 'toimg':
        	if(!quotedMsg) return client.reply(from, '.', id)
 		else if (quotedMsg && quotedMsg.type == 'video'){
