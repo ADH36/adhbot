@@ -407,8 +407,8 @@ ${desc}`)
                     postLink,
                     title,
                     subreddit,
-                  
-                    nsfw,
+		    url, 
+		    nsfw,
                     spoiler
                 } = response1.data
 
