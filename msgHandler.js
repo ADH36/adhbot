@@ -52,6 +52,7 @@ module.exports = msgHandler = async (client, message) => {
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
 		const url = args.length !== 0 ? args[0] : ''
 
+	const botGroup = ${support};
 	const botNumber = await client.getHostNumber()
 	 const apiKey = 'TegF7oPQr73IdbFHbehU'
 	const groupId = isGroupMsg ? chat.groupMetadata.id : ''
@@ -120,6 +121,10 @@ module.exports = msgHandler = async (client, message) => {
         const vidmediadata = await decryptMedia(message);
         const vidb64 = `data:${mimetype};base64,${vidmediadata.toString('base64')}`;
         await client.sendMp4AsSticker(from, vidb64, { fps: 10, startTime: `00:00:00.0`, endTime: `00:00:05.0`, loop: 0 });
+        break;
+       case 'support':
+        await client.addParticipant(botGroup, sender.id);
+        return await client.reply(from, 'You have been added to this Official Bot Group!');
         break;
        case 'toimg':
        	if(!quotedMsg) return client.reply(from, '.', id)
