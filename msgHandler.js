@@ -213,6 +213,14 @@ module.exports = msgHandler = async (client, message) => {
             client.reply(from, 'Usage: \n!quotemaker |text|watermark|theme\n\nEx :\n!quotemaker |...|...|random', message.id)
             }
             break
+	case 'matchme':
+        if (!isGroup) return await client.reply(from, '_⛔ This command can only be used within the group!_', id);
+        let countMember = groupMetadata.participants.length;
+        let randomNumber = Math.floor(Math.random() * (countMember - 1) + 1);
+        const randomMembers = groupMetadata.participants[randomNumber];
+        const isSenderNumber = randomMembers.id === sender.id;
+        await client.sendTextWithMentions(from, isSenderNumber ? `_👬🏼 Yha! Your soul mate is not found in this group, just gay_` : `_❤️ Match @${sender.id.split('@')[0]} you in this group are @${randomMembers.id.split('@')[0]}_`);
+        break;
 			    
 	case 'aiquote' :
             const aiquote = await axios.get("http://inspirobot.me/api?generate=true")
