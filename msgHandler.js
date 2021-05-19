@@ -226,7 +226,7 @@ module.exports = msgHandler = async (client, message) => {
         let randomNumber = Math.floor(Math.random() * (countMember - 1) + 1);
         const randomMembers = groupMetadata.participants[randomNumber];
         const isSenderNumber = randomMembers.id === sender.id;
-        await client.sendTextWithMentions(from, isSenderNumber ? `_👬🏼 Yha! Your soul mate is not found in this group, just gay_` : `_❤️ Match @${sender.id.split('@')[0]} you in this group are @${randomMembers.id.split('@')[0]}_`);
+        await client.sendTextWithMentions(from, isSenderNumber ? `_👬🏼 Yha! Your soul mate is not found in this group, just gay_` : `_❤️  @${sender.id.split('@')[0]} Your soulmate in this group are @${randomMembers.id.split('@')[0]}_`);
         break;
 			    
 	case 'aiquote' :
@@ -414,7 +414,7 @@ ${desc}`)
 
                 const isnsfw = nsfwgrp.includes(from)
                 if (nsfw == true) {
-                      if ((isGroupMsg) && (isnsfw)) {
+                      if ((isGroupMsg) && (!isnsfw)) {
                                 await client.sendFileFromUrl(from, `${url}`, 'Reddit.jpg', `${title}` + '\n\nPostlink:' + `${postLink}`)
                       } else if ((isGroupMsg) && (!isnsfw)) {
                                 await client.reply(from, `NSFW is not registered on *${name}*`, id)
