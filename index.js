@@ -53,7 +53,14 @@ const startServer = async (client) => {
        
         
         client.onAddedToGroup((chat) => {
+	    const groups = await client.getAllGroups()
             let totalMem = chat.groupMetadata.participants.length
+	    if (groups.length > groupLimit) {
+	      await client.sendText(chat.id, `Sorry, Bot is still under testing . *MAX LIMIT REACHED*`).then(() => {
+	      client.leaveGroup(chat.id)
+	      client.deleteChat(chat.id)
+		      }) 
+	}
             if (totalMem < 0) { 
             	client.sendText(chat.id, `This group only has ${totalMem} members, Its needs atleast 30 members to activate the services`).then(() => client.leaveGroup(chat.id))
             	client.deleteChat(chat.id)
