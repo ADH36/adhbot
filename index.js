@@ -53,7 +53,7 @@ const startServer = async (client) => {
        
         
         client.onAddedToGroup((chat) => {
-	    const groups = await client.getAllGroups()
+	    const groups = client.getAllGroups()
             let totalMem = chat.groupMetadata.participants.length
 	    if (groups.length > groupLimit) {
 	      await client.sendText(chat.id, `Sorry, Bot is still under testing . *MAX LIMIT REACHED*`).then(() => {
