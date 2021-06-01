@@ -54,8 +54,8 @@ const startServer = async (client) => {
         
         client.onAddedToGroup(async (chat) => {
 	const groups = await client.getAllGroups()
-	if (groups.length > 10) {
-	await client.sendText(chat.id, `Sorry, the group on this Bot is full due to testing\nMax Group is: 10\nWill be increased in future`).then(() => {
+	if (groups.length > 20) {
+	await client.sendText(chat.id, `Sorry, the group on this Bot is full due to testing\nMax Group is: 20\nWill be increased in future`).then(() => {
 	      client.leaveGroup(chat.id)
 	      client.deleteChat(chat.id)
 	  }) 
